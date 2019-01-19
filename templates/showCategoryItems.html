@@ -1,0 +1,73 @@
+{% extends "main.html" %}
+{% block content %}
+	
+	
+	 <div class="alert alert-success" role="alert">
+		<br><br>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			
+			<ul>
+				{% for message in messages %}
+					<li> <strong> {{ message }} </strong> </li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+</div>
+
+<div class="row">
+	{% include "allCategory.html" %}
+	 <div class="col-lg-5" style="background-color: rgba(255, 255, 255, .5);border-style: groove;margin:70px;" >
+	 	{% if quantity != 1 %}
+          <h1 class="my-4">
+          	{{ category.name }} Items ({{ quantity }} items)
+			{% else %}
+			<h1>{{ category.name }} Items ({{ quantity }} item)
+			{% endif %}
+			{%if 'username' in session %}
+			<small><a href="{{url_for('newCategoryItem')}}">
+			<button class="btn btn-info" >
+			Add Item
+			</button>
+		</a></small> {% endif %} </h1>
+          <div class="card h-100">
+           
+            <div class="card-body">
+              <h4 class="card-title">
+                
+              </h4>
+              <p class="card-text" >
+
+              	{% if items and quantity > 0 %}
+	{% for i in items %}
+		
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <img class="img-thumbnail pull-left" src="http://placehold.it/150" alt="image placeholder" /> -->
+				
+				<a href="{{ url_for('showCategoryItem', category_id=i.category_id, category_item_id=i.id) }}" >
+				<h3>{{i.name }}</a><small>({{ i.category.name }})</small>
+				
+				</h3>
+				
+				
+				</div>
+			</div>
+			
+		{% endfor %}
+	{% else %}
+		<ul>
+			<li class="list-group-item">
+				There is no items.
+			</li>
+		</ul>
+	{% endif %}
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+</div>
+{% endblock %}

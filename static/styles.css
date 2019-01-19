@@ -1,0 +1,37 @@
+.navbar{
+      margin-bottom: 0;
+      border-radius: 0;
+
+    }
+
+
+html{
+  
+  background-image: url("color.jpg");
+
+}
+
+@media (min-width: 992px) {
+  body {
+    background-image: url("/static/color.jpg");
+  }
+
+}
+
+
+ h1{
+  font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  color:green;
+  line-height: 60px;
+  font-weight: 200;
+}
+
+ p {
+  font-family: "Helvetica Neue", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #7B7573;
+  line-height: 24px;
+  font-weight: 400;
+ }
+
